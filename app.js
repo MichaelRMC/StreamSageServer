@@ -7,7 +7,7 @@ app.use( express.json() )
 
 app.get( "/", ( req, res ) =>
 {
-	res.send( "Welcome to Streaming Guide" );
+	res.send( "Welcome to StreamSage" );
 } );
 
 app.get( "*", ( req, res ) =>
