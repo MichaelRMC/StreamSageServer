@@ -16,12 +16,12 @@ INSERT INTO streaming_service (name, logo) VALUES
 ('Funimation','https://www.theoasg.com/wp-content/uploads/2016/01/FUni.png'),
 ('Philo','https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Philo_logo.svg/1200px-Philo_logo.svg.png');
 
-\copy title_id(watchmode_id, imdb_id, tmdb_id,tmbd_type, title, year
-)
-from '/Users/michaelcaldwell/Desktop/Pursuit/Capstone/title_id_map.csv' WITH DELIMITER ',' CSV HEADER;
+COPY title_id(watchmode_id, imdb_id, tmdb_id, tmbd_type, title, year)
+FROM '/Users/michaelcaldwell/Desktop/Pursuit/Capstone/title_id_map.csv'
+WITH DELIMITER ','
+CSV HEADER;
 
-\copy person_id(watchmode_id, imdb_id, tmdb_id
-)
-from '/Users/michaelcaldwell/Desktop/Pursuit/Capstone/person_id_map.csv'
+COPY person_id(watchmode_id, imdb_id, tmdb_id)
+FROM '/Users/michaelcaldwell/Desktop/Pursuit/Capstone/person_id_map.csv'
 WITH DELIMITER ','
 CSV HEADER;

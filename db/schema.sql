@@ -12,16 +12,16 @@ CREATE TABLE streaming_service (
 CREATE TABLE title_id (
 	id SERIAL PRIMARY KEY,
 	watchmode_id INT,
-	imdb_id INT,
+	imdb_id VARCHAR,
 	tmdb_id INT,
 	tmbd_type TEXT,
 	title TEXT NOT NULL,
-	year INT
+	year VARCHAR
 );
 
 CREATE TABLE person_id (
 	id SERIAL PRIMARY KEY,
 	watchmode_id INT,
-	imdb_id INT,
+	imdb_id VARCHAR,
 	tmdb_id INT
 );
