@@ -5,17 +5,7 @@ const {
 	getOneTitle,
 } = require( "../queries/streamsage.js" );
 
-const streamsage = express.Router();
-
-service.get("/:id", async (req, res) => {
-	const { id } = req.params;
-	const oneService = await getOneService(id);
-	if (oneService) {
-		res.json(oneService);
-	} else {
-		res.status(404).json({ error: "Not Found!" });
-	}
-});
+const title = express.Router();
 
 title.get( "/:id", async( req, res ) => {
 	const { id } = req.params;
