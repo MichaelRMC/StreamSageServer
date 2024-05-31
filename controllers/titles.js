@@ -3,11 +3,11 @@ const {
 	getOneService,
 	getAllTitles,
 	getOneTitle,
-} = require( "../queries/streamsage.js" );
+} = require( "../queries/titles.js" );
 
-const title = express.Router();
+const titles = express.Router();
 
-title.get( "/:id", async( req, res ) => {
+titles.get( "/:id", async( req, res ) => {
 	const { id } = req.params;
 	const oneTitle = await getOneTitle( id );
 	if ( oneTitle ) {
@@ -17,7 +17,7 @@ title.get( "/:id", async( req, res ) => {
 	}
 });
 
-title.get( "/", async ( req, res ) =>
+titles.get( "/", async ( req, res ) =>
 {
 	const allTitles = await getAllTitles();
 	if ( allTitles[ 0 ] )
@@ -31,3 +31,5 @@ title.get( "/", async ( req, res ) =>
 		} );
 	}
 } );
+
+module.exports = titles
