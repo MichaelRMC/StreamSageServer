@@ -1,21 +1,9 @@
 const db = require( "../db/dbConfig.js" );
 
-const getOneService = async (id) => {
-	try {
-		const oneService = await db.one(
-			"SELECT * FROM streaming_service WHERE id=$1",
-			id
-		);
-		return oneService;
-	} catch (error) {
-		return error;
-	}
-};
-
 const getAllTitles = async () => {
 	try {
-		const titles = await db.any("SELECT * FROM titles_id");
-		return titles;
+		const allTitles = await db.any("SELECT * FROM title_id");
+		return allTitles;
 	} catch (error) {
 		return error;
 	}
@@ -35,8 +23,8 @@ const getOneTitle = async (id) => {
 
 
 
+
 module.exports = {
-	getOneService,
 	getAllTitles,
-	getOneTitle,
-}
+	getOneTitle
+};

@@ -1,13 +1,16 @@
 const express = require( "express" );
+const titles = express.Router();
 const {
-	getOneService,
 	getAllTitles,
 	getOneTitle,
-} = require( "../queries/titles.js" );
+	getTitleByName
+} = require("../queries/titles");
 
-const titles = express.Router();
+const searchController = require( "../controllers/search.controller" );
 
-titles.get( "/:id", async( req, res ) => {
+titles.use("/search", searchController)
+
+titles.get("/:id", async( req, res ) => {
 	const { id } = req.params;
 	const oneTitle = await getOneTitle( id );
 	if ( oneTitle ) {
@@ -17,7 +20,7 @@ titles.get( "/:id", async( req, res ) => {
 	}
 });
 
-titles.get( "/", async ( req, res ) =>
+titles.get("/", async ( req, res ) =>
 {
 	const allTitles = await getAllTitles();
 	if ( allTitles[ 0 ] )
